@@ -1,0 +1,292 @@
+<div *ngIf="user">
+
+  <body class="no-nav-banners logged-in user-style-WillemToemen ms-windows enhanced-mini-profile supports-drag-and-drop"
+        data-fouc-class-names="swift-loading no-nav-banners" dir="ltr">
+
+  <div id="doc"
+       data-at-shortcutkeys="{&quot;n&quot;:&quot;New Tweet&quot;,&quot;l&quot;:&quot;Like&quot;,&quot;r&quot;:&quot;Reply&quot;,&quot;t&quot;:&quot;Retweet&quot;,&quot;m&quot;:&quot;Direct message&quot;,&quot;u&quot;:&quot;Mute User&quot;,&quot;b&quot;:&quot;Block User&quot;,&quot;Enter&quot;:&quot;Open Tweet details&quot;,&quot;o&quot;:&quot;Expand photo&quot;,&quot;/&quot;:&quot;Search&quot;,&quot;CtrlEnter&quot;:&quot;Send Tweet&quot;,&quot;?&quot;:&quot;This menu&quot;,&quot;j&quot;:&quot;Next Tweet&quot;,&quot;k&quot;:&quot;Previous Tweet&quot;,&quot;Space&quot;:&quot;Page down&quot;,&quot;.&quot;:&quot;Load new Tweets&quot;,&quot;gh&quot;:&quot;Home&quot;,&quot;gn&quot;:&quot;Notifications&quot;,&quot;gr&quot;:&quot;Mentions&quot;,&quot;gp&quot;:&quot;Profile&quot;,&quot;gl&quot;:&quot;Likes&quot;,&quot;gi&quot;:&quot;Lists&quot;,&quot;gm&quot;:&quot;Messages&quot;,&quot;gs&quot;:&quot;Settings&quot;,&quot;gu&quot;:&quot;Go to user\u2026&quot;}"
+       class="route-home">
+
+    <div id="page-outer">
+      <div id="page-container" class="AppContent wrapper wrapper-home">
+        <div class="dashboard dashboard-left">
+          <div class="DashboardProfileCard  module">
+
+            <a class="DashboardProfileCard-bg u-bgUserColor u-block" (click)="goToUser(user.username)" tabindex="-1"
+               aria-hidden="true" rel="noopener">
+            </a>
+
+            <div class="DashboardProfileCard-content">
+
+              <a class="DashboardProfileCard-avatarLink u-inlineBlock" (click)="goToUser(user.username)"
+                 title="{{user.name}}"
+                 tabindex="-1" aria-hidden="true" rel="noopener">
+                <img class="DashboardProfileCard-avatarImage js-action-profile-avatar"
+                     src="{{getProfilePicture(72, 72)}}"
+                     alt="">
+              </a>
+
+
+              <div class="DashboardProfileCard-userFields account-group">
+                <div class="DashboardProfileCard-name u-textTruncate">
+                  <a class="u-textInheritColor js-nav" (click)="goToUser(user.username)"
+                     rel="noopener">{{user.name}}</a><span
+                  class="UserBadges"></span>
+                </div>
+                <span class="DashboardProfileCard-screenname u-inlineBlock u-dir" dir="ltr">
+          <a class="DashboardProfileCard-screennameLink u-linkComplex u-linkClean js-nav"
+             (click)="goToUser(user.username)" rel="noopener"><span class="username u-dir" dir="ltr">@<b
+            class="u-linkComplex-target">{{user.username}}</b></span></a>
+        </span>
+              </div>
+
+              <div class="ProfileCardStats">
+                <ul class="ProfileCardStats-statList Arrange Arrange--bottom Arrange--equal">
+                  <li class="ProfileCardStats-stat Arrange-sizeFit">
+                    <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav js-tooltip"
+                       title="{{tweetCount}} Tweets" (click)="goToUser(user.username)" data-element-term="tweet_stats">
+                      <span class="ProfileCardStats-statLabel u-block">Tweets</span>
+                      <span class="ProfileCardStats-statValue" data-is-compact="false">{{tweetCount}}</span>
+                    </a>
+                  </li>
+                  <li class="ProfileCardStats-stat Arrange-sizeFit">
+                    <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav js-tooltip"
+                       title="{{user.following.length}} Following" href="/WillemToemen/following"
+                       data-element-term="following_stats">
+                      <span class="ProfileCardStats-statLabel u-block">Following</span>
+                      <span class="ProfileCardStats-statValue" data-is-compact="false">{{user.following.length}}</span>
+                    </a>
+                  </li>
+                  <li class="ProfileCardStats-stat Arrange-sizeFit">
+                    <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav js-tooltip"
+                       title="{{user.followers.length}} Followers" href="/WillemToemen/followers"
+                       data-element-term="follower_stats">
+                      <span class="ProfileCardStats-statLabel u-block">Followers</span>
+                      <span class="ProfileCardStats-statValue" data-is-compact="false">{{user.followers.length}}</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+
+              <div id="dashboard-profile-prompt"></div>
+
+            </div>
+          </div>
+          <div class="module Trends trends">
+            <div class="trends-inner">
+              <div class="flex-module trends-container context-trends-container">
+                <div class="flex-module-header">
+
+                  <h3><span class="trend-location js-trend-location">Trends for you</span></h3>
+                  <span class="middot" aria-hidden="true">·</span>
+                </div>
+                <div class="flex-module-inner">
+                  <ul class="trend-items js-trends">
+                    <!--<li class="trend-item js-trend-item  context-trend-item" data-trend-name="John de Mol" data-trends-id="-3272767036164848783" data-trend-token=":tailored_request:entity_trend:taxi_worldwide_source:">-->
+
+                    <!--<a class="pretty-link js-nav js-tooltip u-linkComplex " href="/search?q=%22John%20de%20Mol%22&amp;src=tren" data-query-source="trend_click">-->
+                    <!--<span class="u-linkComplex-target trend-name" dir="ltr">John de Mol</span>-->
+
+
+                    <!--<div class="js-nav trend-item-context"></div>-->
+                    <!--<div class="js-nav trend-item-stats">-->
+
+                    <!--</div>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div role="main" aria-labelledby="content-main-heading" class="content-main top-timeline-tweetbox" id="timeline"
+             tabindex="-1">
+
+          <div id="above-timeline-prompt"></div>
+
+          <div class="timeline-tweet-box">
+            <div class="home-tweet-box tweet-box component tweet-user">
+              <img class="top-timeline-tweet-box-user-image avatar size32"
+                   src="{{getProfilePicture(32, 32)}}"
+                   alt="{{user.name}}">
+              <form class="t1-form tweet-form" method="post" target="tweet-post-iframe"
+                    data-condensed-text="What’s happening?"
+                    enctype="multipart/form-data" data-poll-composer-rows="3">
+
+                <div class="reply-users"></div>
+
+                <div class="tweet-content">
+                  <img class="inline-reply-user-image avatar size32"
+                       src="https://pbs.twimg.com/profile_images/3464667097/6e4b0889b54f970cb7c4f2e43dba3a07_normal.jpeg"
+                       alt="Wilmz">
+                  <span class="visuallyhidden" id="tweet-box-home-timeline-label">Tweet text</span>
+
+                  <div class="RichEditor RichEditor--emojiPicker">
+
+                    <div class="RichEditor-mozillaCursorWorkaround">&nbsp;</div>
+                    <div class="RichEditor-container u-borderRadiusInherit">
+
+
+                      <div role="listbox" class="dropdown-menu typeahead" id="typeahead-dropdown-4">
+                        <div aria-hidden="true" class="dropdown-caret">
+                          <div class="caret-outer"></div>
+                          <div class="caret-inner"></div>
+                        </div>
+                        <div role="presentation" class="dropdown-inner js-typeahead-results">
+                          <ul role="presentation"
+                              class="typeahead-items typeahead-accounts social-context js-typeahead-accounts block0"
+                              style="display: none;">
+
+                            <li role="presentation" data-user-id="" data-user-screenname="" data-remote="true"
+                                data-score=""
+                                class="typeahead-item typeahead-account-item js-selectable">
+
+                              <a role="option" class="js-nav" data-query-source="typeahead_click" data-search-query=""
+                                 data-ds="account">
+                                <div class="js-selectable typeahead-in-conversation hidden">
+                                  <span class="Icon Icon--follower Icon--small"></span>
+                                  <span class="typeahead-in-conversation-text">In this conversation</span>
+                                </div>
+                                <img class="avatar size32" alt="">
+                                <span class="typeahead-user-item-info account-group">
+        <span class="fullname"></span><span class="UserBadges"><span
+                                  class="Icon Icon--verified js-verified hidden"><span class="u-hiddenVisually">Verified account</span></span><span
+                                  class="Icon Icon--protected js-protected hidden"><span class="u-hiddenVisually">Protected Tweets</span></span></span><span
+                                  class="UserNameBreak">&nbsp;</span><span class="username u-dir"
+                                                                           dir="ltr">@<b></b></span>
+      </span>
+                                <span class="typeahead-social-context"></span>
+                              </a>
+                            </li>
+                            <li role="presentation" class="js-selectable typeahead-accounts-shortcut js-shortcut"><a
+                              role="option" class="js-nav" href="" data-search-query=""
+                              data-query-source="typeahead_click"
+                              data-shortcut="true" data-ds="account_search"></a></li>
+                          </ul>
+                          <ul role="presentation" class="typeahead-items typeahead-topics block1"
+                              style="display: none;">
+
+                            <li role="presentation" class="typeahead-item typeahead-topic-item">
+                              <a role="option" class="js-nav" href="" data-search-query=""
+                                 data-query-source="typeahead_click"
+                                 data-ds="topics" tabindex="-1"></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+
+                      <div class="RichEditor-scrollContainer u-borderRadiusInherit">
+                        <div aria-labelledby="tweet-box-home-timeline-label" name="tweet" id="tweet-box-home-timeline"
+                             class="tweet-box rich-editor" contenteditable="true" spellcheck="true" role="textbox"
+                             aria-multiline="true" data-placeholder-default="What’s happening?"
+                             data-placeholder-poll-composer-on="Ask a question..."
+                             data-placeholder-reply="Tweet your reply"
+                             dir="ltr" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-dropdown-4">
+
+                          <div #tweet_message>Whats happening?</div>
+
+                        </div>
+                        <div class="RichEditor-pictographs" aria-hidden="true"></div>
+                      </div>
+
+
+                    </div>
+                    <div class="RichEditor-mozillaCursorWorkaround">&nbsp;</div>
+                  </div>
+
+
+                  <textarea aria-hidden="true" class="tweet-box-shadow hidden" name="status"></textarea>
+                </div>
+
+                <div class="TweetBoxToolbar">
+
+                  <div class="TweetBoxToolbar-tweetButton tweet-button">
+                    <button (click)="tweet(tweet_message.innerText)"
+                            class="tweet-action EdgeButton EdgeButton--primary js-tweet-btn" type="button">
+                      <span class="button-text tweeting-text">
+                        Tweet
+                      </span>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div style="position: absolute; visibility: hidden;">
+                  <div>What’s happening?</div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+          <div class="content-header visuallyhidden">
+            <div class="header-inner">
+              <h2 id="content-main-heading" class="js-timeline-title">Tweets</h2>
+            </div>
+          </div>
+
+          <div class="stream-container conversations-enabled " data-max-position="978935046550708224"
+               data-min-position="977846826064928769">
+
+            <div class="stream">
+              <app-tweets [tweets]="feed"></app-tweets>
+              <div class="stream-footer ">
+                <div class="timeline-end has-items has-more-items">
+                  <div class="stream-end">
+                    <div class="stream-end-inner">
+                      <span class="Icon Icon--large Icon--logo"></span>
+
+                      <p class="empty-text">
+
+                        What? No Tweets yet?
+                      </p>
+
+                      <p>
+                        <button type="button" class="btn-link back-to-top hidden" style="display: inline-block;">Back to
+                          top
+                          ↑
+                        </button>
+                      </p>
+                    </div>
+                  </div>
+
+
+                  <div class="stream-loading">
+                    <div class="stream-end-inner">
+                      <span class="spinner" title="Loading..."></span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="stream-fail-container">
+                <div class="js-stream-whale-end stream-whale-end stream-placeholder centered-placeholder">
+                  <div class="stream-end-inner">
+                    <h2 class="title">Loading seems to be taking a while.</h2>
+                    <p>
+                      Twitter may be over capacity or experiencing a momentary hiccup. <a role="button" href="#"
+                                                                                          class="try-again-after-whale">Try
+                      again</a> or visit <a target="_blank" href="http://status.twitter.com" rel="noopener">Twitter
+                      Status</a>
+                      for more information.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <ol class="hidden-replies-container"></ol>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  </body>
+</div>

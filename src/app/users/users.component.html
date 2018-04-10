@@ -1,0 +1,17 @@
+<h1>User panel</h1>
+<ul class="users">
+  <!--<li *ngFor="let user of users"-->
+  <!--(click)="onSelect(user)"-->
+  <!--[class.selected]="user === selectedUser">-->
+  <li *ngFor="let user of users">
+    <a routerLink="/admin/users/{{user.username}}">
+
+      {{user.id}}
+      <span class="badge">
+       {{user.username}}
+    </span>
+      {{user.name | uppercase}}
+    </a>
+  </li>
+</ul>
+

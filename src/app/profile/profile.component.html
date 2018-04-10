@@ -1,0 +1,989 @@
+<div *ngIf="user">
+  <body
+    class="no-nav-banners three-col logged-in user-style-WillemToemen ms-windows enhanced-mini-profile ProfilePage ProfilePage--withWarning supports-drag-and-drop"
+    data-fouc-class-names="swift-loading no-nav-banners" dir="ltr">
+
+
+  <div id="doc"
+       data-at-shortcutkeys="{&quot;n&quot;:&quot;New Tweet&quot;,&quot;l&quot;:&quot;Like&quot;,&quot;r&quot;:&quot;Reply&quot;,&quot;t&quot;:&quot;Retweet&quot;,&quot;m&quot;:&quot;Direct message&quot;,&quot;u&quot;:&quot;Mute User&quot;,&quot;b&quot;:&quot;Block User&quot;,&quot;Enter&quot;:&quot;Open Tweet details&quot;,&quot;o&quot;:&quot;Expand photo&quot;,&quot;/&quot;:&quot;Search&quot;,&quot;CtrlEnter&quot;:&quot;Send Tweet&quot;,&quot;?&quot;:&quot;This menu&quot;,&quot;j&quot;:&quot;Next Tweet&quot;,&quot;k&quot;:&quot;Previous Tweet&quot;,&quot;Space&quot;:&quot;Page down&quot;,&quot;.&quot;:&quot;Load new Tweets&quot;,&quot;gh&quot;:&quot;Home&quot;,&quot;gn&quot;:&quot;Notifications&quot;,&quot;gr&quot;:&quot;Mentions&quot;,&quot;gp&quot;:&quot;Profile&quot;,&quot;gl&quot;:&quot;Likes&quot;,&quot;gi&quot;:&quot;Lists&quot;,&quot;gm&quot;:&quot;Messages&quot;,&quot;gs&quot;:&quot;Settings&quot;,&quot;gu&quot;:&quot;Go to user\u2026&quot;}"
+       class="route-profile">
+
+
+    <div id="page-outer">
+      <div id="page-container" class="AppContent">
+        <div class="ProfileCanopy ProfileCanopy--withNav js-variableHeightTopBar">
+          <div class="ProfileCanopy-inner">
+
+            <div class="ProfileCanopy-header u-bgUserColor" style="margin-top: 0px;">
+              <div class="ProfileCanopy-headerBg">
+                <img alt="" class="u-hidden" style="transform: none;">
+              </div>
+
+              <div class="AppContainer">
+
+                <div class="ProfileCanopy-avatar">
+                  <div class="ProfileAvatar">
+                    <!--<a class="ProfileAvatar-placeholder u-block js-nav js-tooltip profile-picture u-hidden" href="/WillemToemen?edit=true" title="Add a profile photo" data-placement="right" data-scribe-element="profile_avatar">-->
+                      <!--<img class="ProfileAvatar-placeholderImage u-bgUserColor" data-avatar-placeholder="true" src="{{getProfilePicture(200, 400)}}" alt="Wilmz">-->
+                    <!--</a>-->
+                    <a class="ProfileAvatar-container u-block js-tooltip profile-picture" href="{{getProfilePicture(200, 200)}}" target="_blank" rel="noopener">
+                      <img class="ProfileAvatar-image" src="{{getProfilePicture(200, 200)}}" alt="{{user.name}}">
+                    </a>
+                  </div>
+
+                  <div class="ProfileAvatarEditing is-withAvatar">
+                    <div class="ProfileAvatarEditing-placeholder u-bgUserColor"></div>
+                    <div class="ProfileAvatarEditing-container">
+                      <img class="ProfileAvatarEditing-image avatar" src="{{getProfilePicture(400, 400)}}" alt="Wilmz">
+                    </div>
+                    <div class="ProfileAvatarEditing-overlay"></div>
+                    <div class="ProfileAvatarEditing-iframeSaving">
+                      <div class="ProfileAvatarEditing-iframeSavingHelp">
+                        <span class="Icon Icon--clock"></span>
+                        <p>Saving</p>
+                      </div>
+                    </div>
+                    <div class="ProfileAvatarEditing-buttonContainer">
+                      <button class="ProfileAvatarEditing-button u-boxShadowInsetUserColorHover" type="button" tabindex="2">
+                        <div class="ProfileAvatarEditing-addAvatarHelp">
+                          <span class="Icon Icon--cameraPlus"></span>
+                          <p>Add a profile photo</p>
+                        </div>
+                        <div class="ProfileAvatarEditing-changeAvatarHelp">
+                          <span class="Icon Icon--camera"></span>
+                          <p>Change your profile photo</p>
+                        </div>
+                        <div class="ProfileAvatarEditing-dropAvatarHelp">
+                          <span class="Icon Icon--cameraPlus"></span>
+                          <p>Drop profile photo here</p>
+                        </div>
+                      </button>
+                    </div>
+                    <div id="choose-photo" class="controls avatar-settings inline-upload-avatar dropdown center">
+                      <div class="uploader-image uploader-avatar clearfix">
+                        <div class="dropdown-menu">
+                          <div class="dropdown-caret">
+                            <span class="caret-outer"></span>
+                            <span class="caret-inner"></span>
+                          </div>
+                          <ul>
+                            <li id="photo-choose-existing" class="photo-choose-existing upload-photo">
+                              <button type="button" class="dropdown-link">Upload photo</button>
+                              <div class="photo-selector">
+                                <button class="btn" type="button">
+                                  Change photo
+                                </button>
+                                <span class="photo-file-name">No file selected</span>
+                                <div class="image-selector">
+                                  <input type="hidden" name="media_file_name" class="file-name">
+                                  <input type="hidden" name="media_data_empty" class="file-data">
+                                  <label class="t1-label">
+                                    <span class="u-hiddenVisually">Add Photo</span>
+                                    <input type="file" name="media[]" class="file-input js-tooltip" tabindex="-1" title="Add Photo" accept="image/gif,image/jpeg,image/jpg,image/png">
+                                  </label>
+                                </div>
+                              </div>
+
+                            </li>
+                            <li id="photo-choose-webcam" class="u-hidden">
+                              <button type="button" class="dropdown-link">Take photo</button>
+                            </li>
+                            <li id="photo-delete-image" class="">
+                              <button type="button" class="dropdown-link">Remove</button>
+                            </li>
+                            <li class="dropdown-divider" role="presentation"></li>
+                            <li class="cancel-options">
+                              <button type="button" class="dropdown-link">Cancel</button>
+                            </li>
+                          </ul>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <button type="button" class="ProfileCanopy-addHeaderCallout">
+          <span class="ProfileCanopy-addHeaderCalloutText u-inlineBlock">
+            Make this space yours. Add a photo!
+          </span>
+                </button>
+              </div>
+
+            </div>
+
+            <div class="ProfileCanopy-navBar u-boxShadow">
+              <div class="ProfilePage-editingOverlay"></div>
+
+              <div class="AppContainer">
+                <div class="Grid Grid--withGutter">
+                  <div class="Grid-cell u-size1of3 u-lg-size1of4">
+                    <div class="ProfileCanopy-card" role="presentation" aria-hidden="true">
+                      <div class="ProfileCardMini">
+                        <a class="ProfileCardMini-avatar profile-picture js-tooltip"
+                           href="https://pbs.twimg.com/profile_images/3464667097/6e4b0889b54f970cb7c4f2e43dba3a07.jpeg"
+                           title="Wilmz"
+                           data-resolved-url-large="https://pbs.twimg.com/profile_images/3464667097/6e4b0889b54f970cb7c4f2e43dba3a07.jpeg"
+                           data-url="https://pbs.twimg.com/profile_images/3464667097/6e4b0889b54f970cb7c4f2e43dba3a07.jpeg"
+                           target="_blank" rel="noopener" tabindex="-1">
+                          <img class="ProfileCardMini-avatarImage" alt="Wilmz"
+                               src="https://pbs.twimg.com/profile_images/3464667097/6e4b0889b54f970cb7c4f2e43dba3a07_normal.jpeg">
+                        </a>
+                        <div class="ProfileCardMini-details">
+                          <div class="ProfileNameTruncated account-group">
+                            <div class="u-textTruncate u-inlineBlock">
+                              <a class="fullname ProfileNameTruncated-link u-textInheritColor js-nav"
+                                 href="/WillemToemen" data-aria-label-part="" tabindex="-1">
+                                Wilmz</a></div>
+                            <span class="UserBadges"></span>
+                          </div>
+                          <div class="ProfileCardMini-screenname">
+                            <a href="{{goToUser(user.username)}}"
+                               class="ProfileCardMini-screennameLink u-linkComplex js-nav u-dir"
+                               dir="ltr" tabindex="-1">
+                                <span class="username u-dir" dir="ltr">@<b
+                                  class="u-linkComplex-target">{{user.username}}</b></span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="Grid-cell u-size2of3 u-lg-size3of4">
+                    <div class="ProfileCanopy-nav">
+
+                      <div class="ProfileNav" role="navigation" data-user-id="329193990">
+                        <ul class="ProfileNav-list">
+                          <li class="ProfileNav-item ProfileNav-item--tweets">
+
+                            <div class="ProfileNav-stat  u-textCenter js-tooltip ">
+                              <span class="ProfileNav-label" aria-hidden="true">Tweets</span>
+                              <span class="ProfileNav-value" data-is-compact="false">{{tweetCount}}
+              </span>
+                            </div>
+                          </li>
+                          <li class="ProfileNav-item ProfileNav-item--following">
+                            <div class="ProfileNav-stat  u-textCenter js-tooltip ">
+                              <span class="ProfileNav-label" aria-hidden="true">Following</span>
+                              <span class="ProfileNav-value" data-is-compact="false">{{user.following.length}}</span>
+                            </div>
+                          </li>
+                          <li class="ProfileNav-item ProfileNav-item--followers">
+                            <div class="ProfileNav-stat  u-textCenter js-tooltip ">
+                              <span class="ProfileNav-label" aria-hidden="true">Followers</span>
+                              <span class="ProfileNav-value" data-is-compact="false">{{user.followers.length}}</span>
+                            </div>
+                          </li>
+
+                          <li *ngIf="!isLoggedInUser()"
+                              class="ProfileNav-item ProfileNav-item--userActions u-floatRight u-textRight with-rightCaret ">
+                            <div class="UserActions   u-textLeft">
+                              <div class="user-actions btn-group not-following not-muting " data-user-id="18742444"
+                                   data-screen-name="InfinityWard" data-name="Infinity Ward" data-protected="false">
+                                <span class="UserActions-moreActions u-inlineBlock">
+                                        <button type="button" class="js-tooltip unmute-button btn small plain-btn"
+                                                title="Unmute @InfinityWard"
+                                                data-placement="top">
+                                    <span class="Icon Icon--muted Icon--medium"><span
+                                      class="visuallyhidden">Unmute <span
+                                      class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span></span></span>
+          </button><button type="button" class="first-load js-tooltip mute-button btn small plain-btn"
+                           title="Mute @InfinityWard" data-placement="top">
+            <span class="Icon Icon--unmuted Icon--medium"><span class="visuallyhidden">Mute <span
+              class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span></span></span>
+          </button></span>
+                                <span class="user-actions-follow-button js-follow-btn follow-button">
+
+                                  <div *ngIf="isFollowing();then unfollow_button else follow_button">
+                                  </div>
+
+                                  <ng-template #unfollow_button>
+                                    <button (click)="unFollowUser()" type="button"
+                                            class=" EdgeButton EdgeButton--primary EdgeButton--medium button-text follow-text">
+                                        <span aria-hidden="true">Following</span>
+                                        <span class="u-hiddenVisually">Following <span
+                                          class="username u-dir u-textTruncate"
+                                          dir="ltr">@<b>{{user.username}}</b></span></span>
+                                    </button>
+                                  </ng-template>
+
+                                  <ng-template #follow_button>
+                                    <button (click)="followUser()" type="button"
+                                            class="EdgeButton EdgeButton--secondary EdgeButton--medium button-text follow-text">
+                                        <span aria-hidden="true">Follow</span>
+                                        <span class="u-hiddenVisually">Follow <span
+                                          class="username u-dir u-textTruncate"
+                                          dir="ltr">@<b>{{user.username}}</b></span></span>
+                                    </button>
+                                  </ng-template>
+
+                                </span>
+
+
+                                <div class="dropdown ">
+                                  <button type="button"
+                                          class="user-dropdown dropdown-toggle js-dropdown-toggle js-link js-tooltip btn plain-btn"
+                                          title="More user actions" aria-haspopup="true">
+                                    <span class="user-dropdown-icon Icon Icon--dotsVertical Icon--medium"><span
+                                      class="visuallyhidden">User actions</span></span>
+                                  </button>
+                                  <div class="dropdown-menu dropdown-menu--rightAlign is-autoCentered is-forceRight">
+                                    <div class="dropdown-caret">
+                                      <span class="caret-outer"></span>
+                                      <span class="caret-inner"></span>
+                                    </div>
+                                    <ul>
+                                      <li class="mention-text not-blocked">
+                                        <button type="button" class="dropdown-link">Tweet to <span
+                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
+                                        </button>
+                                      </li>
+                                      <li class="dm-text">
+                                        <button type="button" class="dropdown-link">Send a Direct Message</button>
+                                      </li>
+                                      <li class="list-text not-blocked">
+                                        <button type="button" class="dropdown-link">Add or remove from lists…</button>
+                                      </li>
+                                      <li class="dropdown-divider not-blocked"></li>
+                                      <li class="mute-user-item">
+                                        <button type="button" class="dropdown-link">Mute <span
+                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
+                                        </button>
+                                      </li>
+                                      <li class="unmute-user-item">
+                                        <button type="button" class="dropdown-link">Unmute <span
+                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
+                                        </button>
+                                      </li>
+
+                                      <li class="block-text not-blocked">
+                                        <button type="button" class="dropdown-link">Block <span
+                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
+                                        </button>
+                                      </li>
+                                      <li class="unblock-text">
+                                        <button type="button" class="dropdown-link">Unblock <span
+                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
+                                        </button>
+                                      </li>
+                                      <li class="report-text">
+                                        <button type="button" class="dropdown-link">Report <span
+                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
+                                        </button>
+                                      </li>
+                                      <li class="hide-suggestion-text">
+                                        <button type="button" class="dropdown-link">Hide this suggestion</button>
+                                      </li>
+                                      <li class="dropdown-divider is-following"></li>
+                                      <li class="retweet-on-text">
+                                        <button type="button" class="dropdown-link">Turn on Retweets</button>
+                                      </li>
+                                      <li class="retweet-off-text">
+                                        <button type="button" class="dropdown-link">Turn off Retweets</button>
+                                      </li>
+                                      <li class="device-notifications-on-text">
+                                        <button type="button" class="dropdown-link">Turn on mobile notifications
+                                        </button>
+                                      </li>
+                                      <li class="device-notifications-off-text">
+                                        <button type="button" class="dropdown-link">Turn off mobile notifications
+                                        </button>
+                                      </li>
+                                      <li class="dropdown-divider is-embeddable"></li>
+                                      <li class="embed-profile">
+                                        <button type="button" class="dropdown-link">Embed this Profile</button>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="AppContainer">
+          <div class="AppContent-main content-main u-cf" role="main" aria-labelledby="content-main-heading">
+            <div class="Grid Grid--withGutter">
+              <div class="Grid-cell u-size1of3 u-lg-size1of4">
+                <div class="Grid Grid--withGutter">
+                  <div class="Grid-cell">
+                    <div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
+                      <div class="ProfileHeaderCard">
+                        <h1 class="ProfileHeaderCard-name">
+                          <a href="{{goToUser(user.username)}}"
+                             class="ProfileHeaderCard-nameLink u-textInheritColor js-nav">{{user.name}}</a>
+                        </h1>
+
+                        <h2 class="ProfileHeaderCard-screenname u-inlineBlock u-dir" dir="ltr">
+                          <a class="ProfileHeaderCard-screennameLink u-linkComplex js-nav"
+                             href="{{goToUser(user.username)}}">
+                              <span class="username u-dir" dir="ltr">@<b
+                                class="u-linkComplex-target">{{user.username}}</b></span>
+                          </a>
+                        </h2>
+
+                        <p class="ProfileHeaderCard-bio u-dir" dir="ltr">
+                          {{user.bio}}
+                        </p>
+
+                        <p class="ProfileHeaderCard-location u-dir" dir="ltr">
+                          {{user.location}}
+                        </p>
+
+                        <p class="ProfileHeaderCard-web u-dir" dir="ltr">
+                          <a href="{{user.web}}">
+                            {{user.web}}
+                          </a>
+                        </p>
+
+                        <!--<div class="ProfileHeaderCard-location ">-->
+                        <!--<span class="ProfileHeaderCard-locationText u-dir" dir="ltr">-->
+                        <!--{{user.location}}-->
+                        <!--</span>-->
+                        <!--</div>-->
+
+                        <!--<div class="ProfileHeaderCard-url ">-->
+                        <!--<span class="ProfileHeaderCard-urlText u-dir">-->
+                        <!--<a href="{{user.web}}">-->
+                        <!--{{user.web}}-->
+                        <!--</a>-->
+                        <!--</span>-->
+                        <!--</div>-->
+
+
+                      </div>
+                      <div class="MoveableModule">
+
+                        <div class="SidebarCommonModules">
+
+
+                          <div class="module wtf-module js-wtf-module roaming-module has-content">
+                            <!--<div class="flex-module">-->
+                            <!--<div class="flex-module-header">-->
+                            <!--<h3>Who to follow</h3>-->
+                            <!--<small>·</small>-->
+                            <!--<button type="button" class="btn-link js-refresh-suggestions">-->
+                            <!--<small>Refresh</small>-->
+                            <!--</button>-->
+                            <!--<small class="view-all">· <a class="js-view-all-link js-nav"-->
+                            <!--href="/who_to_follow/suggestions"-->
+                            <!--data-element-term="view_all_link">View all</a></small>-->
+                            <!--</div>-->
+
+                            <!--<div class="js-recommended-followers dashboard-user-recommendations flex-module-inner"-->
+                            <!--data-section-id="wtf" style="opacity: 1;">-->
+                            <!--<div class="UserSmallListItem js-account-summary account-summary js-actionable-user"-->
+                            <!--data-user-id="329917866" data-feedback-token="500" data-impression-id="">-->
+                            <!--<div class="UserSmallListItem-context">-->
+                            <!--<div class="UserSmallListItem-contextIcon">-->
+                            <!--<span class="Icon Icon&#45;&#45;follower Icon&#45;&#45;smallest"></span>-->
+                            <!--</div>-->
+                            <!--<div class="UserSmallListItem-contextText metadata social-context">-->
+                            <!--Followed by <a class="pretty-link user-profile-link js-user-profile-link"-->
+                            <!--data-user-id="179172248" href="/kyravanbommel" rel="noopener"><b>Kyra-->
+                            <!--van Bommel</b></a> and <a href="/kimvansantvoort/followers_you_follow"-->
+                            <!--class="pretty-link u-textUserColor"><b>others</b></a>-->
+                            <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="dismiss js-action-dismiss"><span class="Icon Icon&#45;&#45;close"></span></div>-->
+
+                            <!--<div class="content">-->
+                            <!--<a class="account-group js-recommend-link js-user-profile-link user-thumb"-->
+                            <!--href="/kimvansantvoort" data-user-id="329917866" rel="noopener">-->
+
+                            <!--<img class="avatar js-action-profile-avatar "-->
+                            <!--src="https://pbs.twimg.com/profile_images/3776990000/dad640ab50843b70ee8481855fd726ae_bigger.jpeg"-->
+                            <!--alt="">-->
+                            <!--<span class="account-group-inner" data-user-id="329917866">-->
+                            <!--<strong class="fullname">Kim' <span class="Emoji Emoji&#45;&#45;forLinks"-->
+                            <!--style="background-image:url('https://abs.twimg.com/emoji/v2/72x72/2665.png')"-->
+                            <!--title="Heart suit" aria-label="Emoji: Heart suit">&nbsp;</span><span-->
+                            <!--class="visuallyhidden" aria-hidden="true">♥</span></strong><span class="UserBadges"></span><span-->
+                            <!--class="UserNameBreak">&nbsp;</span><span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>kimvansantvoort</b></span>-->
+                            <!--</span>-->
+                            <!--</a>-->
+
+
+                            <!--<div class="user-actions not-following not-muting"-->
+                            <!--data-screen-name="kimvansantvoort" data-user-id="329917866">-->
+
+                            <!--<span class="user-actions-follow-button js-follow-btn follow-button">-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;secondary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--follow-text">-->
+                            <!--<span aria-hidden="true">Follow</span>-->
+                            <!--<span class="u-hiddenVisually">Follow <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>kimvansantvoort</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;primary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--following-text">-->
+                            <!--<span aria-hidden="true">Following</span>-->
+                            <!--<span class="u-hiddenVisually">Following <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>kimvansantvoort</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;danger-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--unfollow-text">-->
+                            <!--<span aria-hidden="true">Unfollow</span>-->
+                            <!--<span class="u-hiddenVisually">Unfollow <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>kimvansantvoort</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;invertedDanger-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--blocked-text">-->
+                            <!--<span aria-hidden="true">Blocked</span>-->
+                            <!--<span class="u-hiddenVisually">Blocked <span class="username u-dir u-textTruncate" dir="ltr">@<b>kimvansantvoort</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;danger-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--unblock-text">-->
+                            <!--<span aria-hidden="true">Unblock</span>-->
+                            <!--<span class="u-hiddenVisually">Unblock <span class="username u-dir u-textTruncate" dir="ltr">@<b>kimvansantvoort</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;secondary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--pending-text">-->
+                            <!--<span aria-hidden="true">Pending</span>-->
+                            <!--<span class="u-hiddenVisually">Pending follow request from <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>kimvansantvoort</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;secondary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--cancel-text">-->
+                            <!--<span aria-hidden="true">Cancel</span>-->
+                            <!--<span class="u-hiddenVisually">Cancel your follow request to <span class="username u-dir u-textTruncate" dir="ltr">@<b>kimvansantvoort</b></span></span>-->
+                            <!--</button>-->
+                            <!--</span>-->
+
+
+                            <!--</div>-->
+
+                            <!--</div>-->
+                            <!--</div>-->
+
+
+                            <!--<div class="UserSmallListItem js-account-summary account-summary js-actionable-user"-->
+                            <!--data-user-id="287557046" data-feedback-token="500" data-impression-id="">-->
+                            <!--<div class="UserSmallListItem-context">-->
+                            <!--<div class="UserSmallListItem-contextIcon">-->
+                            <!--<span class="Icon Icon&#45;&#45;follower Icon&#45;&#45;smallest"></span>-->
+                            <!--</div>-->
+                            <!--<div class="UserSmallListItem-contextText metadata social-context">-->
+                            <!--Followed by <a class="pretty-link user-profile-link js-user-profile-link"-->
+                            <!--data-user-id="370823689" href="/brittverkoelen" rel="noopener"><b>Britt</b></a>-->
+                            <!--and <a href="/sabienvandoorn/followers_you_follow"-->
+                            <!--class="pretty-link u-textUserColor"><b>others</b></a>-->
+                            <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="dismiss js-action-dismiss"><span class="Icon Icon&#45;&#45;close"></span></div>-->
+
+                            <!--<div class="content">-->
+                            <!--<a class="account-group js-recommend-link js-user-profile-link user-thumb"-->
+                            <!--href="/sabienvandoorn" data-user-id="287557046" rel="noopener">-->
+
+                            <!--<img class="avatar js-action-profile-avatar "-->
+                            <!--src="https://pbs.twimg.com/profile_images/450277157512564736/fqv80u8I_bigger.jpeg"-->
+                            <!--alt="">-->
+                            <!--<span class="account-group-inner" data-user-id="287557046">-->
+                            <!--<strong class="fullname">Sabien van Doorn .</strong><span class="UserBadges"></span><span class="UserNameBreak">&nbsp;</span><span-->
+                            <!--class="username u-dir u-textTruncate" dir="ltr">@<b>sabienvandoorn</b></span>-->
+                            <!--</span>-->
+                            <!--</a>-->
+
+
+                            <!--<div class="user-actions not-following not-muting" data-screen-name="sabienvandoorn"-->
+                            <!--data-user-id="287557046">-->
+
+                            <!--<span class="user-actions-follow-button js-follow-btn follow-button">-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;secondary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--follow-text">-->
+                            <!--<span aria-hidden="true">Follow</span>-->
+                            <!--<span class="u-hiddenVisually">Follow <span class="username u-dir u-textTruncate" dir="ltr">@<b>sabienvandoorn</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;primary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--following-text">-->
+                            <!--<span aria-hidden="true">Following</span>-->
+                            <!--<span class="u-hiddenVisually">Following <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>sabienvandoorn</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;danger-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--unfollow-text">-->
+                            <!--<span aria-hidden="true">Unfollow</span>-->
+                            <!--<span class="u-hiddenVisually">Unfollow <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>sabienvandoorn</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;invertedDanger-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--blocked-text">-->
+                            <!--<span aria-hidden="true">Blocked</span>-->
+                            <!--<span class="u-hiddenVisually">Blocked <span class="username u-dir u-textTruncate" dir="ltr">@<b>sabienvandoorn</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;danger-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--unblock-text">-->
+                            <!--<span aria-hidden="true">Unblock</span>-->
+                            <!--<span class="u-hiddenVisually">Unblock <span class="username u-dir u-textTruncate" dir="ltr">@<b>sabienvandoorn</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;secondary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--pending-text">-->
+                            <!--<span aria-hidden="true">Pending</span>-->
+                            <!--<span class="u-hiddenVisually">Pending follow request from <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>sabienvandoorn</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;secondary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--cancel-text">-->
+                            <!--<span aria-hidden="true">Cancel</span>-->
+                            <!--<span class="u-hiddenVisually">Cancel your follow request to <span class="username u-dir u-textTruncate" dir="ltr">@<b>sabienvandoorn</b></span></span>-->
+                            <!--</button>-->
+                            <!--</span>-->
+
+
+                            <!--</div>-->
+
+                            <!--</div>-->
+                            <!--</div>-->
+
+
+                            <!--<div class="UserSmallListItem js-account-summary account-summary js-actionable-user"-->
+                            <!--data-user-id="103084307" data-feedback-token="500" data-impression-id="">-->
+                            <!--<div class="UserSmallListItem-context">-->
+                            <!--<div class="UserSmallListItem-contextIcon">-->
+                            <!--<span class="Icon Icon&#45;&#45;follower Icon&#45;&#45;smallest"></span>-->
+                            <!--</div>-->
+                            <!--<div class="UserSmallListItem-contextText metadata social-context">-->
+                            <!--Followed by <a class="pretty-link user-profile-link js-user-profile-link"-->
+                            <!--data-user-id="277075901" href="/sarahcoopmans" rel="noopener"><b>Sarah</b></a>-->
+                            <!--and <a href="/jesuis_sophie/followers_you_follow"-->
+                            <!--class="pretty-link u-textUserColor"><b>others</b></a>-->
+                            <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="dismiss js-action-dismiss"><span class="Icon Icon&#45;&#45;close"></span></div>-->
+
+                            <!--<div class="content">-->
+                            <!--<a class="account-group js-recommend-link js-user-profile-link user-thumb"-->
+                            <!--href="/jesuis_sophie" data-user-id="103084307" rel="noopener">-->
+
+                            <!--<img class="avatar js-action-profile-avatar "-->
+                            <!--src="https://pbs.twimg.com/profile_images/914922317393940487/iGRgGtst_bigger.jpg"-->
+                            <!--alt="">-->
+                            <!--<span class="account-group-inner" data-user-id="103084307">-->
+                            <!--<strong class="fullname">Sophie</strong><span class="UserBadges"></span><span-->
+                            <!--class="UserNameBreak">&nbsp;</span><span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>jesuis_sophie</b></span>-->
+                            <!--</span>-->
+                            <!--</a>-->
+
+
+                            <!--<div class="user-actions not-following not-muting" data-screen-name="jesuis_sophie"-->
+                            <!--data-user-id="103084307">-->
+
+                            <!--<span class="user-actions-follow-button js-follow-btn follow-button">-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;secondary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--follow-text">-->
+                            <!--<span aria-hidden="true">Follow</span>-->
+                            <!--<span class="u-hiddenVisually">Follow <span class="username u-dir u-textTruncate" dir="ltr">@<b>jesuis_sophie</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;primary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--following-text">-->
+                            <!--<span aria-hidden="true">Following</span>-->
+                            <!--<span class="u-hiddenVisually">Following <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>jesuis_sophie</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;danger-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--unfollow-text">-->
+                            <!--<span aria-hidden="true">Unfollow</span>-->
+                            <!--<span class="u-hiddenVisually">Unfollow <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>jesuis_sophie</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;invertedDanger-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--blocked-text">-->
+                            <!--<span aria-hidden="true">Blocked</span>-->
+                            <!--<span class="u-hiddenVisually">Blocked <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>jesuis_sophie</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;danger-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--unblock-text">-->
+                            <!--<span aria-hidden="true">Unblock</span>-->
+                            <!--<span class="u-hiddenVisually">Unblock <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>jesuis_sophie</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;secondary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--pending-text">-->
+                            <!--<span aria-hidden="true">Pending</span>-->
+                            <!--<span class="u-hiddenVisually">Pending follow request from <span class="username u-dir u-textTruncate"-->
+                            <!--dir="ltr">@<b>jesuis_sophie</b></span></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="-->
+                            <!--EdgeButton-->
+                            <!--EdgeButton&#45;&#45;secondary-->
+                            <!--EdgeButton&#45;&#45;small -->
+                            <!---->
+                            <!--button-text-->
+                            <!--cancel-text">-->
+                            <!--<span aria-hidden="true">Cancel</span>-->
+                            <!--<span class="u-hiddenVisually">Cancel your follow request to <span class="username u-dir u-textTruncate" dir="ltr">@<b>jesuis_sophie</b></span></span>-->
+                            <!--</button>-->
+                            <!--</span>-->
+
+
+                            <!--</div>-->
+
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+
+
+                            <!--<div class="flex-module import-prompt">-->
+                            <!--<div class="cta u-cf js-launch-service" data-service="msn2"-->
+                            <!--data-url="/invitations/oauth_launch?service=msn2" data-popup="true" data-width="512"-->
+                            <!--data-height="512">-->
+                            <!--<span class="service u-sizeFit">-->
+                            <!--<span class="icon service-msn2"></span>-->
+                            <!--</span>-->
+                            <!--<p class="u-sizeFit">-->
+                            <!--<strong>Find people you know</strong>-->
+                            <!--<span>Import your contacts from Outlook</span>-->
+                            <!--</p>-->
+                            <!--</div>-->
+                            <!--<p class="flex-module-inner">-->
+                            <!--<button type="button" class="btn-link js-connect-other">Connect other address books-->
+                            <!--</button>-->
+                            <!--</p>-->
+                            <!--<div class="other-services hidden">-->
+                            <!--<span class="service js-launch-service" data-service="gmail"-->
+                            <!--data-url="/invitations/oauth_launch?service=gmail" data-popup="true" data-width="880" data-height="550">-->
+                            <!--<span class="icon service-gmail"></span>-->
+                            <!--<div>Gmail</div>-->
+                            <!--</span>-->
+                            <!--<p>-->
+                            <!--<span>-->
+                            <!--Choosing an option above will open a window for you to log in and securely import your contacts to Twitter. We'll also use this information to make follow suggestions. You can remove this privilege at any time.-->
+                            <!--</span>-->
+                            <!--</p>-->
+                            <!--</div>-->
+                            <!--</div>-->
+
+                          </div>
+
+
+                          <div class="module Trends trends">
+                            <div class="trends-inner">
+                              <div class="flex-module trends-container context-trends-container">
+                                <div class="flex-module-header">
+                                  <h3><span class="trend-location js-trend-location">Followers ({{user.followers.length}})</span>
+                                  </h3>
+                                  <span class="middot" aria-hidden="true">·</span>
+                                  <a role="button" href="#" data-modal="change-trends"
+                                     class="btn-link change-trends js-trend-toggle">
+                                    <span aria-hidden="true">Refresh</span>
+                                    <span class="u-hiddenVisually">Refresh</span>
+                                  </a>
+                                </div>
+                                <div class="flex-module-inner">
+                                  <ul class="trend-items js-trends">
+                                    <li *ngFor="let follower of user.followers"
+                                        class="trend-item js-trend-item  context-trend-item">
+
+                                      <a class="pretty-link js-nav js-tooltip u-linkComplex "
+                                         href="{{goToUser(follower)}}" data-query-source="trend_click">
+                                        <span class="u-linkComplex-target trend-name" dir="ltr">{{follower}}</span>
+
+
+                                        <div class="js-nav trend-item-context"></div>
+                                        <div class="js-nav trend-item-stats">
+
+                                        </div>
+                                      </a>
+
+                                    </li>
+
+
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="module Trends trends">
+                            <div class="trends-inner">
+                              <div class="flex-module trends-container context-trends-container">
+                                <div class="flex-module-header">
+                                  <h3><span class="trend-location js-trend-location">Following ({{user.following.length}})</span>
+                                  </h3>
+                                  <span class="middot" aria-hidden="true">·</span>
+                                  <a role="button" href="#" data-modal="change-trends"
+                                     class="btn-link change-trends js-trend-toggle">
+                                    <span aria-hidden="true">Refresh</span>
+                                    <span class="u-hiddenVisually">Refresh</span>
+                                  </a>
+                                </div>
+                                <div class="flex-module-inner">
+                                  <ul class="trend-items js-trends">
+                                    <li *ngFor="let following of user.following"
+                                        class="trend-item js-trend-item  context-trend-item">
+
+                                      <a class="pretty-link js-nav js-tooltip u-linkComplex "
+                                         href="{{goToUser(following)}}">
+                                        <span class="u-linkComplex-target trend-name" dir="ltr">{{following}}</span>
+
+
+                                        <div class="js-nav trend-item-context"></div>
+                                        <div class="js-nav trend-item-stats">
+
+                                        </div>
+                                      </a>
+
+                                    </li>
+
+
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="Footer module roaming-module Footer--slim Footer--blankBackground">
+                            <div class="flex-module">
+                              <div class="flex-module-inner js-items-container">
+                                <ul class="u-cf">
+                                  <li class="Footer-item Footer-copyright copyright">© 2018 Willem Toemen</li>
+
+                                </ul>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="Grid-cell u-size2of3 u-lg-size3of4">
+                <div class="Grid Grid--withGutter">
+                  <div class="Grid-cell">
+                    <div class="js-profileClusterFollow"></div>
+                  </div>
+
+                  <div class="Grid-cell
+                      u-lg-size2of3
+                " data-test-selector="ProfileTimeline">
+
+                    <div class="ProfileHeading">
+                      <div class="ProfileHeading-spacer"></div>
+                      <div class="ProfileHeading-content">
+                        <h2 id="content-main-heading" class="ProfileHeading-title u-hiddenVisually ">Tweets</h2>
+                        <ul class="ProfileHeading-toggle">
+                          <li class="ProfileHeading-toggleItem  is-active" data-element-term="tweets_toggle">
+                            <span aria-hidden="true">Tweets</span>
+                            <span class="u-hiddenVisually">Tweets, current page.</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div id="timeline" class="ProfileTimeline ">
+                      <div class="stream-container  " data-max-position="553514299000643584"
+                           data-min-position="87941272840572930">
+
+                        <div class="stream">
+                          <app-tweets [tweets]="tweets"></app-tweets>
+                          <div class="stream-footer">
+                            <div class="timeline-end has-items">
+                              <div class="stream-end">
+                                <div class="stream-end-inner">
+                                  <span class="Icon Icon--large Icon--logo"></span>
+
+                                  <p class="empty-text">
+
+                                    You haven't Tweeted yet.
+                                  </p>
+
+                                  <p>
+                                    <button type="button" class="btn-link back-to-top hidden"
+                                            style="display: inline-block;">Back to top ↑
+                                    </button>
+                                  </p>
+                                </div>
+                              </div>
+
+
+                              <div class="stream-loading">
+                                <div class="stream-end-inner">
+                                  <span class="spinner" title="Loading..."></span>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                          <div class="stream-fail-container u-hidden" style="display: none;">
+                            <div class="js-stream-whale-end stream-whale-end stream-placeholder centered-placeholder">
+                              <div class="stream-end-inner">
+                                <h2 class="title">Loading seems to be taking a while.</h2>
+                                <p>
+                                  Twitter may be over capacity or experiencing a momentary hiccup. <a role="button"
+                                                                                                      href="#"
+                                                                                                      class="try-again-after-whale">Try
+                                  again</a> or visit <a target="_blank" href="http://status.twitter.com"
+                                                        rel="noopener">Twitter
+                                  Status</a> for more information.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <ol class="hidden-replies-container"></ol>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                  <div class="Grid-cell u-size1of3">
+                    <div class="Grid Grid--withGutter">
+                      <div class="Grid-cell">
+                        <div class="ProfileSidebar ProfileSidebar--withRightAlignment">
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <style>@keyframes TwitterVideoPlayerBufferingAnimation {
+           0% {
+             transform: rotate(0deg);
+           }
+           100% {
+             transform: rotate(360deg);
+           }
+         }</style>
+
+  </body>
+</div>

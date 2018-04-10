@@ -1,0 +1,122 @@
+<ol class="stream-items js-navigable-stream" id="stream-items-id">
+
+
+  <li *ngFor="let tweet of tweets" class="js-stream-item stream-item stream-item
+  " data-item-id="539862380227100672" id="stream-item-tweet-539862380227100672" data-item-type="tweet"
+      data-suggestion-json="{&quot;suggestion_details&quot;:{},&quot;tweet_ids&quot;:&quot;539862380227100672&quot;,&quot;scribe_component&quot;:&quot;tweet&quot;}">
+
+
+    <div class="tweet js-stream-tweet js-actionable-tweet js-profile-popup-actionable dismissible-content
+         original-tweet js-original-tweet
+
+
+         my-tweet
+  " data-tweet-id="539862380227100672" data-item-id="539862380227100672"
+         data-permalink-path="/WillemToemen/status/539862380227100672"
+         data-conversation-id="539862380227100672" data-can-be-self-threaded="true"
+         data-tweet-nonce="539862380227100672-fcd11926-6b5c-467a-ab4d-e87ee6cf0838"
+         data-tweet-stat-initialized="true" data-screen-name="WillemToemen"
+         data-name="Wilmz"
+         data-user-id="329193990" data-you-follow="false" data-follows-you="false"
+         data-you-block="false"
+         data-reply-to-users-json="[{&quot;id_str&quot;:&quot;329193990&quot;,&quot;screen_name&quot;:&quot;WillemToemen&quot;,&quot;name&quot;:&quot;Wilmz&quot;,&quot;emojified_name&quot;:{&quot;text&quot;:&quot;Wilmz&quot;,&quot;emojified_text_as_html&quot;:&quot;Wilmz&quot;}}]"
+         data-disclosure-type="" data-tfb-view="/i/tfb/v1/quick_promote/539862380227100672">
+
+      <div class="context">
+
+
+      </div>
+
+      <div class="content">
+
+
+        <div class="stream-item-header">
+          <a
+            class="account-group js-account-group js-action-profile js-user-profile-link js-nav"
+            href="{{tweet.user.username}}">
+            <img class="avatar js-action-profile-avatar"
+                 src="{{getProfilePicture(48, 48)}}"
+                 alt="{{tweet.id}}">
+            <span class="FullNameGroup">
+        <strong class="fullname show-popup-with-id u-textTruncate "
+                data-aria-label-part="">{{tweet.user.name}}</strong><span>‏</span><span class="UserBadges"></span><span
+              class="UserNameBreak">&nbsp;</span></span><span
+            class="username u-dir u-textTruncate" dir="ltr" data-aria-label-part="">@<b>{{tweet.user.username}}</b></span></a>
+
+
+          <small class="time">
+            <a href=""
+               class="tweet-timestamp js-permalink js-nav js-tooltip"
+               title="{{tweet.datePlaced}}" data-conversation-id="539862380227100672"><span
+              class="_timestamp js-short-timestamp " data-aria-label-part="last"
+              data-long-form="true">{{tweet.datePlaced}}</span></a>
+          </small>
+
+        </div>
+
+
+        <div class="js-tweet-text-container">
+          <p class="TweetTextSize TweetTextSize--normal js-tweet-text tweet-text" lang="et"
+             data-aria-label-part="0">{{tweet.message}}
+            <!--<a href="/hashtag/{{tweet.}}"-->
+            <!--data-query-source="hashtag_click"-->
+            <!--class="twitter-hashtag pretty-link js-nav"-->
+            <!--dir="ltr"><s>#</s><b>rapperzdelaidt</b></a>-->
+          </p>
+        </div>
+
+
+        <div class="stream-item-footer">
+
+          <div class="ProfileTweet-actionList js-actions" role="group"
+               aria-label="Tweet actions">
+
+            <div class="ProfileTweet-action ProfileTweet-action--favorite js-toggleState">
+              <button class="ProfileTweet-actionButton js-actionButton js-actionFavorite"
+                      type="button"
+                      aria-describedby="profile-tweet-action-favorite-count-aria-539862380227100672">
+                <div class="IconContainer js-tooltip" title="Like">
+                  <span role="presentation" class="Icon Icon--heart Icon--medium"></span>
+                  <div class="HeartAnimation"></div>
+                  <span class="u-hiddenVisually">Like</span>
+                </div>
+                <span class="ProfileTweet-actionCount ProfileTweet-actionCount--isZero">
+      <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">{{tweet.likes}} likes</span>
+    </span>
+
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+    <div class="dismiss-module">
+      <div class="dismissed-module">
+        <div class="feedback-actions">
+          <div class="feedback-action" data-feedback-type="DontLike" data-feedback-url="">
+            <div class="action-confirmation dismiss-module-item">Thanks. Twitter will use
+              this
+              to make your timeline better.
+              <span class="undo-action">Undo</span>
+            </div>
+          </div>
+        </div>
+        <div class="child-feedback-confirmation">
+          <div class="child-confirmation-item">
+            <span class="child-confirmation-text"></span>
+            <span class="undo-child-feedback-action">Undo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </li>
+
+</ol>

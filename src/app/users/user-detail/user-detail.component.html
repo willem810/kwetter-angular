@@ -1,0 +1,46 @@
+<div *ngIf="user">
+  <h2>User Details</h2>
+  <h3>Details for {{ user.username | uppercase }} </h3>
+  <div><span>id: </span>{{user.id}}</div>
+  <div><span>username: </span>{{user.username}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="user.name" placeholder="name">
+    </label>
+  </div>
+  <div><span>location: </span>{{user.location}}</div>
+  <div><span>web: </span>{{user.web}}</div>
+  <div><span>bio: </span>{{user.bio}}</div>
+
+  <div>
+    <span>Followers:</span>
+    <ul class="followers">
+      <li *ngFor="let follower of user.followers">
+        {{follower}}
+      </li>
+    </ul>
+  </div>
+
+
+  <div>
+    <span>Following: </span>
+    <ul class="following">
+      <li *ngFor="let user of user.following">
+        {{user}}
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <span>Groups:</span>
+    <ul class="groups">
+      <li *ngFor="let group of user.groups">
+        {{group}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<button (click)="goBack()">go back</button>
+
+

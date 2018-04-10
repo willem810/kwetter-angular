@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Kwetter';
+
+  constructor(private router: Router) {
+  }
+
+  useHeader(): boolean {
+    if (this.router.url === '/login') {
+      return false;
+    }
+
+    return true;
+  }
 }
