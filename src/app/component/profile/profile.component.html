@@ -24,17 +24,20 @@
                 <div class="ProfileCanopy-avatar">
                   <div class="ProfileAvatar">
                     <!--<a class="ProfileAvatar-placeholder u-block js-nav js-tooltip profile-picture u-hidden" href="/WillemToemen?edit=true" title="Add a profile photo" data-placement="right" data-scribe-element="profile_avatar">-->
-                      <!--<img class="ProfileAvatar-placeholderImage u-bgUserColor" data-avatar-placeholder="true" src="{{getProfilePicture(200, 400)}}" alt="Wilmz">-->
+                    <!--<img class="ProfileAvatar-placeholderImage u-bgUserColor" data-avatar-placeholder="true" src="{{getProfilePicture(200, 400)}}" alt="Wilmz">-->
                     <!--</a>-->
-                    <a class="ProfileAvatar-container u-block js-tooltip profile-picture" href="{{getProfilePicture(200, 200)}}" target="_blank" rel="noopener">
-                      <img class="ProfileAvatar-image" src="{{getProfilePicture(200, 200)}}" alt="{{user.name}}">
+                    <a class="ProfileAvatar-container u-block js-tooltip profile-picture"
+                       href="{{getProfilePicture(200, 200)}}" target="_blank" rel="noopener">
+                      <img class="ProfileAvatar-image" src="{{getProfilePicture(200, 200)}}"
+                           alt="{{user.name}}">
                     </a>
                   </div>
 
                   <div class="ProfileAvatarEditing is-withAvatar">
                     <div class="ProfileAvatarEditing-placeholder u-bgUserColor"></div>
                     <div class="ProfileAvatarEditing-container">
-                      <img class="ProfileAvatarEditing-image avatar" src="{{getProfilePicture(400, 400)}}" alt="Wilmz">
+                      <img class="ProfileAvatarEditing-image avatar"
+                           src="{{getProfilePicture(400, 400)}}" alt="Wilmz">
                     </div>
                     <div class="ProfileAvatarEditing-overlay"></div>
                     <div class="ProfileAvatarEditing-iframeSaving">
@@ -44,7 +47,8 @@
                       </div>
                     </div>
                     <div class="ProfileAvatarEditing-buttonContainer">
-                      <button class="ProfileAvatarEditing-button u-boxShadowInsetUserColorHover" type="button" tabindex="2">
+                      <button class="ProfileAvatarEditing-button u-boxShadowInsetUserColorHover"
+                              type="button" tabindex="2">
                         <div class="ProfileAvatarEditing-addAvatarHelp">
                           <span class="Icon Icon--cameraPlus"></span>
                           <p>Add a profile photo</p>
@@ -59,7 +63,8 @@
                         </div>
                       </button>
                     </div>
-                    <div id="choose-photo" class="controls avatar-settings inline-upload-avatar dropdown center">
+                    <div id="choose-photo"
+                         class="controls avatar-settings inline-upload-avatar dropdown center">
                       <div class="uploader-image uploader-avatar clearfix">
                         <div class="dropdown-menu">
                           <div class="dropdown-caret">
@@ -67,26 +72,34 @@
                             <span class="caret-inner"></span>
                           </div>
                           <ul>
-                            <li id="photo-choose-existing" class="photo-choose-existing upload-photo">
-                              <button type="button" class="dropdown-link">Upload photo</button>
+                            <li id="photo-choose-existing"
+                                class="photo-choose-existing upload-photo">
+                              <button type="button" class="dropdown-link">Upload photo
+                              </button>
                               <div class="photo-selector">
                                 <button class="btn" type="button">
                                   Change photo
                                 </button>
                                 <span class="photo-file-name">No file selected</span>
                                 <div class="image-selector">
-                                  <input type="hidden" name="media_file_name" class="file-name">
-                                  <input type="hidden" name="media_data_empty" class="file-data">
+                                  <input type="hidden" name="media_file_name"
+                                         class="file-name">
+                                  <input type="hidden" name="media_data_empty"
+                                         class="file-data">
                                   <label class="t1-label">
                                     <span class="u-hiddenVisually">Add Photo</span>
-                                    <input type="file" name="media[]" class="file-input js-tooltip" tabindex="-1" title="Add Photo" accept="image/gif,image/jpeg,image/jpg,image/png">
+                                    <input type="file" name="media[]"
+                                           class="file-input js-tooltip"
+                                           tabindex="-1" title="Add Photo"
+                                           accept="image/gif,image/jpeg,image/jpg,image/png">
                                   </label>
                                 </div>
                               </div>
 
                             </li>
                             <li id="photo-choose-webcam" class="u-hidden">
-                              <button type="button" class="dropdown-link">Take photo</button>
+                              <button type="button" class="dropdown-link">Take photo
+                              </button>
                             </li>
                             <li id="photo-delete-image" class="">
                               <button type="button" class="dropdown-link">Remove</button>
@@ -134,7 +147,8 @@
                           <div class="ProfileNameTruncated account-group">
                             <div class="u-textTruncate u-inlineBlock">
                               <a class="fullname ProfileNameTruncated-link u-textInheritColor js-nav"
-                                 href="/WillemToemen" data-aria-label-part="" tabindex="-1">
+                                 href="/WillemToemen" data-aria-label-part=""
+                                 tabindex="-1">
                                 Wilmz</a></div>
                             <span class="UserBadges"></span>
                           </div>
@@ -160,29 +174,34 @@
                           <li class="ProfileNav-item ProfileNav-item--tweets">
 
                             <div class="ProfileNav-stat  u-textCenter js-tooltip ">
-                              <span class="ProfileNav-label" aria-hidden="true">Tweets</span>
+                                                            <span class="ProfileNav-label"
+                                                                  aria-hidden="true">Tweets</span>
                               <span class="ProfileNav-value" data-is-compact="false">{{tweetCount}}
               </span>
                             </div>
                           </li>
                           <li class="ProfileNav-item ProfileNav-item--following">
                             <div class="ProfileNav-stat  u-textCenter js-tooltip ">
-                              <span class="ProfileNav-label" aria-hidden="true">Following</span>
+                                                            <span class="ProfileNav-label"
+                                                                  aria-hidden="true">Following</span>
                               <span class="ProfileNav-value" data-is-compact="false">{{user.following.length}}</span>
                             </div>
                           </li>
                           <li class="ProfileNav-item ProfileNav-item--followers">
                             <div class="ProfileNav-stat  u-textCenter js-tooltip ">
-                              <span class="ProfileNav-label" aria-hidden="true">Followers</span>
+                                                            <span class="ProfileNav-label"
+                                                                  aria-hidden="true">Followers</span>
                               <span class="ProfileNav-value" data-is-compact="false">{{user.followers.length}}</span>
                             </div>
                           </li>
 
-                          <li *ngIf="!isLoggedInUser()"
+                          <li *ngIf="!isLoggedInUser"
                               class="ProfileNav-item ProfileNav-item--userActions u-floatRight u-textRight with-rightCaret ">
                             <div class="UserActions   u-textLeft">
-                              <div class="user-actions btn-group not-following not-muting " data-user-id="18742444"
-                                   data-screen-name="InfinityWard" data-name="Infinity Ward" data-protected="false">
+                              <div class="user-actions btn-group not-following not-muting "
+                                   data-user-id="18742444"
+                                   data-screen-name="InfinityWard"
+                                   data-name="Infinity Ward" data-protected="false">
                                 <span class="UserActions-moreActions u-inlineBlock">
                                         <button type="button" class="js-tooltip unmute-button btn small plain-btn"
                                                 title="Unmute @InfinityWard"
@@ -197,16 +216,22 @@
           </button></span>
                                 <span class="user-actions-follow-button js-follow-btn follow-button">
 
-                                  <div *ngIf="isFollowing();then unfollow_button else follow_button">
+                                  <div *ngIf="isFollowing;then unfollow_button else follow_button">
                                   </div>
 
                                   <ng-template #unfollow_button>
-                                    <button (click)="unFollowUser()" type="button"
-                                            class=" EdgeButton EdgeButton--primary EdgeButton--medium button-text follow-text">
-                                        <span aria-hidden="true">Following</span>
-                                        <span class="u-hiddenVisually">Following <span
-                                          class="username u-dir u-textTruncate"
-                                          dir="ltr">@<b>{{user.username}}</b></span></span>
+                                    <!--<button type="button"-->
+                                    <!--class=" EdgeButton EdgeButton&#45;&#45;primary EdgeButton&#45;&#45;medium button-text follow-text">-->
+                                    <!--<span aria-hidden="true">Following</span>-->
+                                    <!--<span class="u-hiddenVisually">Following <span-->
+                                    <!--class="username u-dir u-textTruncate"-->
+                                    <!--dir="ltr">@<b>{{user.username}}</b></span></span>-->
+                                    <!--</button>-->
+                                      <button (click)="unFollowUser()" type="button"
+                                              class=" EdgeButton EdgeButton--danger EdgeButton--medium button-text follow-text">
+                                        <span aria-hidden="true">Unfollow</span>
+                                        <span class="u-hiddenVisually">Unfollow <span
+                                          class="username u-dir u-textTruncate" dir="ltr">@<b>{{user.username}}</b></span></span>
                                     </button>
                                   </ng-template>
 
@@ -217,89 +242,13 @@
                                         <span class="u-hiddenVisually">Follow <span
                                           class="username u-dir u-textTruncate"
                                           dir="ltr">@<b>{{user.username}}</b></span></span>
-                                    </button>
+                                      </button>
+
                                   </ng-template>
 
+
+
                                 </span>
-
-
-                                <div class="dropdown ">
-                                  <button type="button"
-                                          class="user-dropdown dropdown-toggle js-dropdown-toggle js-link js-tooltip btn plain-btn"
-                                          title="More user actions" aria-haspopup="true">
-                                    <span class="user-dropdown-icon Icon Icon--dotsVertical Icon--medium"><span
-                                      class="visuallyhidden">User actions</span></span>
-                                  </button>
-                                  <div class="dropdown-menu dropdown-menu--rightAlign is-autoCentered is-forceRight">
-                                    <div class="dropdown-caret">
-                                      <span class="caret-outer"></span>
-                                      <span class="caret-inner"></span>
-                                    </div>
-                                    <ul>
-                                      <li class="mention-text not-blocked">
-                                        <button type="button" class="dropdown-link">Tweet to <span
-                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
-                                        </button>
-                                      </li>
-                                      <li class="dm-text">
-                                        <button type="button" class="dropdown-link">Send a Direct Message</button>
-                                      </li>
-                                      <li class="list-text not-blocked">
-                                        <button type="button" class="dropdown-link">Add or remove from lists…</button>
-                                      </li>
-                                      <li class="dropdown-divider not-blocked"></li>
-                                      <li class="mute-user-item">
-                                        <button type="button" class="dropdown-link">Mute <span
-                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
-                                        </button>
-                                      </li>
-                                      <li class="unmute-user-item">
-                                        <button type="button" class="dropdown-link">Unmute <span
-                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
-                                        </button>
-                                      </li>
-
-                                      <li class="block-text not-blocked">
-                                        <button type="button" class="dropdown-link">Block <span
-                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
-                                        </button>
-                                      </li>
-                                      <li class="unblock-text">
-                                        <button type="button" class="dropdown-link">Unblock <span
-                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
-                                        </button>
-                                      </li>
-                                      <li class="report-text">
-                                        <button type="button" class="dropdown-link">Report <span
-                                          class="username u-dir u-textTruncate" dir="ltr">@<b>InfinityWard</b></span>
-                                        </button>
-                                      </li>
-                                      <li class="hide-suggestion-text">
-                                        <button type="button" class="dropdown-link">Hide this suggestion</button>
-                                      </li>
-                                      <li class="dropdown-divider is-following"></li>
-                                      <li class="retweet-on-text">
-                                        <button type="button" class="dropdown-link">Turn on Retweets</button>
-                                      </li>
-                                      <li class="retweet-off-text">
-                                        <button type="button" class="dropdown-link">Turn off Retweets</button>
-                                      </li>
-                                      <li class="device-notifications-on-text">
-                                        <button type="button" class="dropdown-link">Turn on mobile notifications
-                                        </button>
-                                      </li>
-                                      <li class="device-notifications-off-text">
-                                        <button type="button" class="dropdown-link">Turn off mobile notifications
-                                        </button>
-                                      </li>
-                                      <li class="dropdown-divider is-embeddable"></li>
-                                      <li class="embed-profile">
-                                        <button type="button" class="dropdown-link">Embed this Profile</button>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-
                               </div>
                             </div>
                           </li>
@@ -797,8 +746,10 @@
                                         class="trend-item js-trend-item  context-trend-item">
 
                                       <a class="pretty-link js-nav js-tooltip u-linkComplex "
-                                         href="{{goToUser(follower)}}" data-query-source="trend_click">
-                                        <span class="u-linkComplex-target trend-name" dir="ltr">{{follower}}</span>
+                                         href="{{goToUser(follower)}}"
+                                         data-query-source="trend_click">
+                                                                                <span class="u-linkComplex-target trend-name"
+                                                                                      dir="ltr">{{follower}}</span>
 
 
                                         <div class="js-nav trend-item-context"></div>
@@ -836,7 +787,8 @@
 
                                       <a class="pretty-link js-nav js-tooltip u-linkComplex "
                                          href="{{goToUser(following)}}">
-                                        <span class="u-linkComplex-target trend-name" dir="ltr">{{following}}</span>
+                                                                                <span class="u-linkComplex-target trend-name"
+                                                                                      dir="ltr">{{following}}</span>
 
 
                                         <div class="js-nav trend-item-context"></div>
@@ -858,7 +810,9 @@
                             <div class="flex-module">
                               <div class="flex-module-inner js-items-container">
                                 <ul class="u-cf">
-                                  <li class="Footer-item Footer-copyright copyright">© 2018 Willem Toemen</li>
+                                  <li class="Footer-item Footer-copyright copyright">©
+                                    2018 Willem Toemen
+                                  </li>
 
                                 </ul>
                               </div>
@@ -887,9 +841,11 @@
                     <div class="ProfileHeading">
                       <div class="ProfileHeading-spacer"></div>
                       <div class="ProfileHeading-content">
-                        <h2 id="content-main-heading" class="ProfileHeading-title u-hiddenVisually ">Tweets</h2>
+                        <h2 id="content-main-heading"
+                            class="ProfileHeading-title u-hiddenVisually ">Tweets</h2>
                         <ul class="ProfileHeading-toggle">
-                          <li class="ProfileHeading-toggleItem  is-active" data-element-term="tweets_toggle">
+                          <li class="ProfileHeading-toggleItem  is-active"
+                              data-element-term="tweets_toggle">
                             <span aria-hidden="true">Tweets</span>
                             <span class="u-hiddenVisually">Tweets, current page.</span>
                           </li>
@@ -915,8 +871,10 @@
                                   </p>
 
                                   <p>
-                                    <button type="button" class="btn-link back-to-top hidden"
-                                            style="display: inline-block;">Back to top ↑
+                                    <button type="button"
+                                            class="btn-link back-to-top hidden"
+                                            style="display: inline-block;">Back to
+                                      top ↑
                                     </button>
                                   </p>
                                 </div>
@@ -934,12 +892,15 @@
                           <div class="stream-fail-container u-hidden" style="display: none;">
                             <div class="js-stream-whale-end stream-whale-end stream-placeholder centered-placeholder">
                               <div class="stream-end-inner">
-                                <h2 class="title">Loading seems to be taking a while.</h2>
+                                <h2 class="title">Loading seems to be taking a
+                                  while.</h2>
                                 <p>
-                                  Twitter may be over capacity or experiencing a momentary hiccup. <a role="button"
-                                                                                                      href="#"
-                                                                                                      class="try-again-after-whale">Try
-                                  again</a> or visit <a target="_blank" href="http://status.twitter.com"
+                                  Twitter may be over capacity or experiencing a
+                                  momentary hiccup. <a role="button"
+                                                       href="#"
+                                                       class="try-again-after-whale">Try
+                                  again</a> or visit <a target="_blank"
+                                                        href="http://status.twitter.com"
                                                         rel="noopener">Twitter
                                   Status</a> for more information.
                                 </p>

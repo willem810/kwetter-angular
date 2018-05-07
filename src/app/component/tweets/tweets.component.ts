@@ -1,5 +1,5 @@
 import {AfterViewChecked, Component, Input, OnInit} from '@angular/core';
-import {Tweet} from '../domain/tweet';
+import {Tweet} from '../../domain/tweet';
 
 @Component({
   selector: 'app-tweets',
@@ -15,6 +15,7 @@ export class TweetsComponent implements AfterViewChecked {
 
   ngAfterViewChecked() {
     this.sort();
+    //
   }
 
   sort(): void {

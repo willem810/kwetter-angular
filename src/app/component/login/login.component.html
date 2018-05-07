@@ -18,19 +18,19 @@
             <div class="LoginForm-input LoginForm-username">
               <input #username_input type="text" class="text-input email-input js-signin-email" name="session[username_or_email]"
                      autocomplete="username" placeholder="Username">
+              <div *ngIf="invalidLogin" class="LoginForm-staticForgot">
+                <a  class="forgot" href="/account/begin_password_reset" rel="noopener">Invalid login!</a>
+              </div>
             </div>
 
-            <!--<div class="LoginForm-input LoginForm-password">-->
-              <!--<input type="password" class="text-input" name="session[password]" placeholder="Password"-->
-                     <!--autocomplete="current-password">-->
-              <!--<div class="LoginForm-staticForgot">-->
-                <!--<a class="forgot" href="/account/begin_password_reset" rel="noopener">Forgot password?</a>-->
-              <!--</div>-->
 
-            <!--</div>-->
+            <div class="LoginForm-input LoginForm-password">
+              <input #password_input type="password" class="text-input" name="session[password]" placeholder="Password" autocomplete="current-password">
+
+            </div>
 
 
-            <input (click)="login(username_input.value)" type="submit" class="EdgeButton EdgeButton--secondary EdgeButton--medium submit js-submit"
+            <input (click)="login(username_input.value, password_input.value)" type="submit" class="EdgeButton EdgeButton--secondary EdgeButton--medium submit js-submit"
                    value="Log in">
 
             <input type="hidden" name="return_to_ssl" value="true">

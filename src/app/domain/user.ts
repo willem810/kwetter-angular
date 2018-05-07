@@ -8,4 +8,14 @@ export class User {
   following: string[];
   followers: string[];
   groups: string[];
+  rel: {
+    tweets: string;
+    tweetCount: string;
+    tweet: string;
+    followUser: string;
+    unFollowUser: string;
+    addGroup: string;
+    removeGroup: string;
+    feed: string;
+  };
 }

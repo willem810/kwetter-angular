@@ -9,45 +9,35 @@ import {TweetRequest} from '../../request/tweetRequest';
 import {UserService} from '../user/user.service';
 import {initTransferState} from '@angular/platform-browser/src/browser/transfer_state';
 import {Observer} from 'rxjs/Observer';
+import {HttpclientService} from '../httpclient/httpclient.service';
+import {TweetSocket} from '../../socket/TweetSocket';
 
 @Injectable()
 export class TweetService {
 
-  private serverUrl = 'http://127.0.0.1:8080/kwetter/resources';
-  private tweetEndpoint = '/tweets';
-  private userEndpoint = '/users';
+  private serverUrl = 'http://127.0.0.1:8080/kwetter';
+  private tweetEndpoint = '/resources/tweets';
+  private userEndpoint = '/resources/users';
 
   private userService: UserService;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private tweetSocket: TweetSocket) {
+
   }
 
 
-  getTweetsByUsername(username: string): Observable<Tweet[]> {
-    const url = `${this.serverUrl}${this.userEndpoint}/${username}/tweets`;
+  getTweetsByUsername(user: User): Observable<Tweet> {
+    const url = this.serverUrl + user.rel.tweets;
+    // const url = `${this.serverUrl}${this.userEndpoint}/${username}/tweets`;
 
     const data = this.http.get<TweetRequest[]>(url)
       .pipe(
         catchError(this.handleError('getUsers', []))
       );
 
-    return this.processTweetRequests(data);
-  }
-
-  getFeed(username: string): Observable<Tweet[]> {
-    const url = `${this.serverUrl}${this.userEndpoint}/${username}/feed`;
-
-    const data = this.http.get<TweetRequest[]>(url)
-      .pipe(
-        catchError(this.handleError('getFeed', []))
-      );
-
-    return this.processTweetRequests(data);
-  }
-
-  processTweetRequests(data: Observable<TweetRequest[]>): Observable<Tweet[]> {
-    let observer: Observer<Tweet[]>;
-    const observable: Observable<Tweet[]> = Observable.create(obs => observer = obs);
+    let observer: Observer<Tweet>;
+    const observable: Observable<Tweet> = Observable.create(obs => observer = obs);
 
     data.subscribe(
       value => {
@@ -55,16 +45,55 @@ export class TweetService {
         // We need to transform it as Tweet object
         const tweets = [];
         for (const resp of value) {
-          this.initTweet(resp).subscribe(t => tweets.push(t));
+          // tell subscribers that we've got a new value, and then complete the observable;
+          this.initTweet(resp).subscribe(t => observer.next(t));
         }
-        // tell subscribers that we've got a new value, and then complete the observable;
-        observer.next(tweets);
       },
       () => observer.complete()
     );
 
+    this.tweetSocket.subscribeTweets(user.username).subscribe(tweetReq => {
+      if (tweetReq.user === user.username) {
+        this.initTweet(tweetReq).subscribe(t => observer.next(t));
+      }
+    });
+
     return observable;
   }
+
+  getFeed(user: User): Observable<Tweet> {
+    const url = this.serverUrl + user.rel.feed;
+    // const url = `${this.serverUrl}${this.userEndpoint}/${username}/feed`;
+
+    const data = this.http.get<TweetRequest[]>(url)
+      .pipe(
+        catchError(this.handleError('getFeed', []))
+      );
+
+
+    let observer: Observer<Tweet>;
+    const observable: Observable<Tweet> = Observable.create(obs => observer = obs);
+
+    data.subscribe(
+      value => {
+        // value is of type TweetRequest
+        // We need to transform it as Tweet object
+        const tweets = [];
+        for (const resp of value) {
+          // tell subscribers that we've got a new value, and then complete the observable;
+          this.initTweet(resp).subscribe(t => observer.next(t));
+        }
+      },
+      () => observer.complete()
+    );
+
+    this.tweetSocket.subscribeTweets(user.username).subscribe(tweetReq => {
+      this.initTweet(tweetReq).subscribe(t => observer.next(t));
+    });
+
+    return observable;
+  }
+
 
   initTweet(tReq: TweetRequest): Observable<Tweet> {
     let observer: Observer<Tweet>;
@@ -81,7 +110,7 @@ export class TweetService {
     return observable;
   }
 
-  tweet(message: string, username: string): Observable<Object> {
+  tweet(message: string, username: string) {
     const url = `${this.serverUrl}${this.tweetEndpoint}/add`;
 
     const httpOptions = {
@@ -90,14 +119,12 @@ export class TweetService {
       })
     };
 
-    console.log('posting to: ' + url);
-
     const body = {
       message: message,
       user: {username: username}
-    }
+    };
 
-    return this.http.post(url, body, httpOptions);
+    this.http.post(url, body, httpOptions).subscribe();
   }
 
   /**
@@ -110,7 +137,7 @@ export class TweetService {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
-      console.error(error.message); // log to console instead
+      console.error('ERROR - ' + operation + ': ' + error.message); // log to console instead
 
       // Let the app keep running by returning an empty result.
       return of(result as T);

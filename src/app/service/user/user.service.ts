@@ -14,8 +14,8 @@ import {CoreService} from '../core/core.service';
 @Injectable()
 export class UserService {
 
-  private serverUrl = 'http://127.0.0.1:8080/kwetter/resources';
-  private usersEndpoint = '/users';
+  private serverUrl = 'http://127.0.0.1:8080/kwetter';
+  private usersEndpoint = '/resources/users';
 
 
   constructor(private http: HttpClient,
@@ -33,6 +33,7 @@ export class UserService {
       .pipe(
         tap(users => console.log(`fetched user: ${users}`)),
         catchError(this.handleError('getUsers', []))
+        //
       );
   }
 
@@ -47,44 +48,27 @@ export class UserService {
     return this.http.get<User[]>(url);
   }
 
-  getUserTweets(username: string): Observable<Tweet[]> {
-    return this.tweetService.getTweetsByUsername(username);
-  }
-
-  getFeed(username: string): Observable<Tweet[]> {
-    return this.tweetService.getFeed(username);
-  }
-
-
-  getTweetCount(username: string): Observable<number> {
-    const url = `${this.serverUrl}${this.usersEndpoint}/${username}/tweets/count`;
+  getTweetCount(user: User): Observable<number> {
+    const url = this.serverUrl + user.rel.tweetCount;
+    // const url = `${this.serverUrl}${this.usersEndpoint}/${username}/tweets/count`;
 
     return this.http.get<number>(url);
-
-    // return this.http.get<number>(url)
-    //   .pipe(
-    //     tap(tCount => console.log(`got tweetcount:  ${tCount}`)),
-    //     catchError(this.handleError('getTweetCount', []))
-    //   );
   }
 
-  tweet(message: string, username: string): Observable<Object> {
-    return this.tweetService.tweet(message, username);
+  tweet(message: string, username: string) {
+    this.tweetService.tweet(message, username);
   }
 
-  followUser(username: string): void {
-    const loggedInUser: string = this.coreService.getLoggedInUser();
-    const url = `${this.serverUrl}${this.usersEndpoint}/${loggedInUser}/follow?u=${username}`;
-
+  followUser(user: User, followUser: string): void {
+    const url = this.serverUrl + user.rel.followUser + followUser;
+    // const url = `${this.serverUrl}${this.usersEndpoint}/${user}/follow?u=${followUser}`;
     this.http.post(url, null).subscribe(ok => {
     });
-    // whut
-
   }
 
-  unFollowUser(username: string): void {
-    const loggedInUser: string = this.coreService.getLoggedInUser();
-    const url = `${this.serverUrl}${this.usersEndpoint}/${loggedInUser}/unfollow?u=${username}`;
+  unFollowUser(user: User, unFollowUser: string): void {
+    const url = this.serverUrl + user.rel.unFollowUser + unFollowUser;
+    //const url = `${this.serverUrl}${this.usersEndpoint}/${user}/unfollow?u=${unFollowUser}`;
 
     this.http.post(url, null).subscribe(ok => {
     });

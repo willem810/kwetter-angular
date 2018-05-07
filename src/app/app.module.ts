@@ -9,17 +9,21 @@ import {UserDetailComponent} from './users/user-detail/user-detail.component';
 import {UsersComponent} from './users/users.component';
 import {UserService} from './service/user/user.service';
 import {AppRoutingModule} from './/app-routing.module';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {HttpClientModule} from '@angular/common/http';
-import {HeaderComponent} from './header/header.component';
-import {FooterComponent} from './footer/footer.component';
-import {ProfileComponent} from './profile/profile.component';
+import {DashboardComponent} from './component/dashboard/dashboard.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HeaderComponent} from './component/header/header.component';
+import {FooterComponent} from './component/footer/footer.component';
+import {ProfileComponent} from './component/profile/profile.component';
 import {TweetService} from './service/tweet/tweet.service';
-import {TweetsComponent} from './tweets/tweets.component';
-import {LoginComponent} from './login/login.component';
+import {TweetsComponent} from './component/tweets/tweets.component';
+import {LoginComponent} from './component/login/login.component';
 import {CoreModule} from './core.module';
 import {CommonModule} from '@angular/common';
 import {TypeaheadContainerComponent} from 'ngx-bootstrap';
+import {AuthenticationService} from './service/auth/authentication.service';
+import {HttpclientService} from './service/httpclient/httpclient.service';
+import {TokenInterceptor} from './interceptor/token.interceptor';
+import {TweetSocket} from './socket/TweetSocket';
 
 @NgModule({
   declarations: [
@@ -42,8 +46,15 @@ import {TypeaheadContainerComponent} from 'ngx-bootstrap';
     CoreModule,
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     UserService,
     TweetService,
+    AuthenticationService,
+    TweetSocket,
   ],
   bootstrap: [AppComponent]
 })
