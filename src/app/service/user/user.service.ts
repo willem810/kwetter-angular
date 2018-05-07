@@ -68,7 +68,7 @@ export class UserService {
 
   unFollowUser(user: User, unFollowUser: string): void {
     const url = this.serverUrl + user.rel.unFollowUser + unFollowUser;
-    //const url = `${this.serverUrl}${this.usersEndpoint}/${user}/unfollow?u=${unFollowUser}`;
+    // const url = `${this.serverUrl}${this.usersEndpoint}/${user}/unfollow?u=${unFollowUser}`;
 
     this.http.post(url, null).subscribe(ok => {
     });
