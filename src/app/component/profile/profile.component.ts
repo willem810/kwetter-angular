@@ -44,26 +44,28 @@ export class ProfileComponent implements OnInit {
 
         this.tweetService.getTweetsByUsername(user)
           .subscribe(tweet => this.tweets.unshift(tweet));
+
+        this.authService.getLoggedInUser().subscribe(loggedInUser => {
+
+          for (const follower of user.followers) {
+            if (follower === loggedInUser.username) {
+              this.isFollowing = true;
+              break;
+            }
+          }
+
+          if (loggedInUser.username === this.user.username) {
+            this.isLoggedInUser = true;
+          } else {
+            this.isLoggedInUser = false;
+          }
+        });
       });
 
 
 
 
-    this.authService.getLoggedInUser().subscribe(loggedInUser => {
 
-      for (const follower of this.user.followers) {
-        if (follower === loggedInUser.username) {
-          this.isFollowing = true;
-          break;
-        }
-      }
-
-      if (loggedInUser.username === this.user.username) {
-        this.isLoggedInUser = true;
-      } else {
-        this.isLoggedInUser = false;
-      }
-    });
   }
 
   goToUser(username: string): string {
